@@ -1,0 +1,31 @@
+body{
+  background-color: #d9d9d9;
+}
+tr.salles th:nth-child(n+2){
+  color: #9e8443;
+  background-color: black;
+  text-transform: uppercase;
+}
+
+tr.seances th{
+  background: #fff url(images/background-calendrier.png) no-repeat center;
+}
+
+.heure{
+  background: url(images/picto-horaire.png) no-repeat;
+  background-size: contain;
+  padding-left: 20px;
+}
+
+.question{
+  background: url(images/picto-question.png) no-repeat;
+  background-size: contain;
+  padding-left: 20px;
+  margin-left: 5px;
+}
+
+.attente{
+  background: url(images/picto-demande-en-attente.png) no-repeat;
+  background-size: contain;
+  padding-left: 25px;
+}

@@ -1,0 +1,118 @@
+{
+  "films":[
+    {
+      "id": 0,
+      "titre": "Agassi",
+      "realisateur": "Chan-Wook Park",
+      "duree": "02:25"
+    },
+    {
+      "id": 1,
+      "titre": "The BFG",
+      "realisateur": "Steven Spielberg",
+      "duree": "01:55"
+    },
+    {
+      "id": 2,
+      "titre": "Mal de pierres",
+      "realisateur": "Nicole Garcia",
+      "duree": "02:00"
+    },
+    {
+      "id": 3,
+      "titre": "American Honey",
+      "realisateur": "Andrea Arnold",
+      "duree": "02:42"
+    },
+    {
+      "id": 4,
+      "titre": "The nice guys",
+      "realisateur": "Shane Black",
+      "duree": "01:56"
+    },
+    {
+      "id": 5,
+      "titre": "Loving",
+      "realisateur": "Jeff Nichols",
+      "duree": "02:03"
+    },
+    {
+      "id": 6,
+      "titre": "Paterson",
+      "realisateur": "Jim Jarmush",
+      "duree": "01:53"
+    },
+    {
+      "id": 7,
+      "titre": "Hands of stone",
+      "realisateur": "Jonathan Jakubowicz",
+      "duree": "01:56"
+    },
+    {
+      "id": 8,
+      "titre": "Julieta",
+      "realisateur": "Pedro Almodóvar",
+      "duree": "01:36"
+    },
+    {
+      "id": 9,
+      "titre": "Personal Assistant",
+      "realisateur": "Olivier Assayas",
+      "duree": "01:45"
+    },
+    {
+      "id": 10,
+      "titre": "Aquarius",
+      "realisateur": "Kleben Mendonça Filho",
+      "duree": "02:20"
+    },
+    {
+      "id": 11,
+      "titre": "La fille inconnue",
+      "realisateur": "Jean-Pierre et Luc Dardenne",
+      "duree": "01:53"
+    },
+    {
+      "id": 12,
+      "titre": "Goksung",
+      "realisateur": "Hong Jin Na",
+      "duree": "02:36"
+    },
+    {
+      "id": 13,
+      "titre": "Ma' Rosa",
+      "realisateur": "Brillante Mendoza",
+      "duree": "01:50"
+    },
+    {
+      "id": 14,
+      "titre": "Bacalauréat",
+      "realisateur": "Cristian Mungiu",
+      "duree": "02:07"
+    },
+    {
+      "id": 15,
+      "titre": "Juste la fin du monde",
+      "realisateur": "Xavier Dolan",
+      "duree": "01:35"
+    },
+    {
+      "id": 16,
+      "titre": "Gimme danger",
+      "realisateur": "Jim Jarmush",
+      "duree": "01:48"
+    },
+    {
+      "id": 17,
+      "titre": "The last face",
+      "realisateur": "Sean Penn",
+      "duree": "02:11"
+    },
+    {
+      "id": 18,
+      "titre": "The neon demon",
+      "realisateur": "Nicolas Winding Refn",
+      "duree": "01:57"
+    }
+  ]
+}
