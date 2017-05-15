@@ -23,30 +23,91 @@ app.controller('FrontController',
                 ctrl.films = response.data.films;
             });
 
-            ctrl.booked = function(film, date){
-                var list_films = findByIdFilm(ctrl.seances.dates[date], film);
-                var booker_films = bookById(ctrl.seances.dates[date], list_films);
-            }
+            ctrl.booked = function(id, date){
+                var seances = ctrl.seances.dates[date].seances;
+                var n_seance = id%8;
+                var booked_film = seances[n_seance].film;
 
-            function bookById(data, array) {
-                var categoryArray = data.seances;
-                for (var i = 0; i < categoryArray['length']; i++) {
-                    if (array.includes(categoryArray[i]['id'])) {
-                        categoryArray[i]['book'] = 1;
+                if(ctrl.credit > 0){
+                    if(creditCheck(seances)){
+                        var list_films = findByIdFilm(seances, booked_film);
+                        if(seances[n_seance].demande == "High"){
+                            if(ctrl.credit > 1){
+                                bookById(id, seances, list_films);
+                                ctrl.credit = ctrl.credit - 2;
+                            }else{
+                                window.alert("Vous n'avez pas assez de crédit pour cette séance.");
+                            }
+                        }else{
+                            bookById(id, seances, list_films);
+                            ctrl.credit--;
+                        }
+                    }else{
+                        window.alert("Vous avez déjà utilisé votre crédit pour ce jour. Il vous reste " + ctrl.credit + " crédit à utiliser sur les autres jours. Vous avez le droit à un credit par jour.");
                     }
+                }else{
+                    window.alert("Vous avez utilisé tout votre crédit pour ce festival. Pour pouvoir réserver cette séance, veuillez annuler l'autre réservation du même jour.")
                 }
             }
 
+            ctrl.cancel = function(id, date){
+                var seances = ctrl.seances.dates[date].seances;
+                var n_seance = id%8;
+                var booked_film = seances[n_seance].film;
+
+                var confirmation = window.confirm("Etes-vous sûr de vouloir annuler cette réservation ?");
+
+                if(confirmation){
+                    var list_films = findByIdFilm(seances, booked_film);
+                    cancelById(seances, list_films);
+                }
+                if(seances[n_seance].demande == "High"){
+                    ctrl.credit = ctrl.credit + 2;
+                }else{
+                    ctrl.credit++;
+                }
+            }
+
+
             function findByIdFilm(data, idToLookFor) {
-                var categoryArray = data.seances;
                 var list_seances = [];
 
-                for (var i = 0; i < categoryArray['length']; i++) {
-                    if (categoryArray[i]['film'] == idToLookFor) {
-                        list_seances.push(categoryArray[i]['id']);
+                for (var i = 0; i < data['length']; i++) {
+                    if (data[i]['film'] == idToLookFor) {
+                        list_seances.push(data[i]['id']);
                     }
                 }
 
                 return list_seances;
+            }
+
+            function bookById(id, data, array) {
+                for (var i = 0; i < data['length']; i++) {
+                    if(data[i]['id'] == id){
+                        data[i]['book'] = 1;
+                    }
+                    else if (array.includes(data[i]['id'])) {
+                        data[i]['book'] = -1;
+                    }
+                }
+            }
+
+            function cancelById(data, array) {
+                for (var i = 0; i < data['length']; i++) {
+                    if (array.includes(data[i]['id'])) {
+                        data[i]['book'] = 0;
+                    }
+                }
+            }
+
+            function creditCheck(data) {
+                for (var i = 0; i < data['length']; i++) {
+                    if (data[i]['book'] == 0) {
+                        continue;
+                    }else{
+                        return false;
+                    }
+                }
+                return true;
             }
         }]);
